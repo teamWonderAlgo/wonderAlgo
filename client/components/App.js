@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Runkit from './Runkit.jsx';
+import Timer from './Timer.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class App extends Component {
   render() {
     return (
       <>
+        <Timer />
         <Runkit />
       </>
     );
