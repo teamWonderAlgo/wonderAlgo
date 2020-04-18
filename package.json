@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js",
-    "build": "webpack",
-    "dev": "webpack-dev-server --open",
+    "start": "cross-env NODE_ENV=production node server/server.js",
+    "build": "cross-env NODE_ENV=production webpack",
+    "dev": "cross-env NODE_ENV=development concurrently \"nodemon server/server.js\" \"webpack-dev-server --open\"",
     "gulp-prod": "node_modules/.bin/gulp prod",
     "gulp-dev": "node_modules/.bin/gulp dev"
   },
@@ -22,16 +22,25 @@
     "browserify": "^10.2.4",
     "express": "^4.12.3",
     "gulp": "^3.9.0",
+    "node-sass": "^4.13.1",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.3.1",
     "webpack": "^4.29.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
     "concurrently": "^4.1.0",
     "cross-env": "^5.2.0",
+    "css-loader": "^3.5.2",
     "isomorphic-fetch": "^2.2.1",
     "nodemon": "^1.18.9",
-    "webpack-cli": "^3.2.3"
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.4",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.10.3"
   }
 }
