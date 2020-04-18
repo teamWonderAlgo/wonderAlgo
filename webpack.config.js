@@ -7,7 +7,6 @@ module.exports = {
     filename: 'bundle.js',
   },
   module: {
-    mode: process.env.NODE_ENV,
     rules: [
       {
         test: /\.jsx?/,
@@ -42,4 +41,5 @@ module.exports = {
       '/assets/**': 'http://localhost:3000',
     },
   },
+  mode: process.env.NODE_ENV,
 };
