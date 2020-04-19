@@ -29,7 +29,22 @@ app.use('/', router);
 
 
 
+// * ERROR HANDLER *** //
+app.use((err, req, res, next) => {
+  const defaultErr = {
+    log: 'Express error handler caught unknown middleware error',
+    status: 400,
+    message: { err: 'An error occurred' },
+  };
+  const errorObj = Object.assign({}, defaultErr, err);
+  console.log(errorObj.log, errorObj.message);
+  return res.status(errorObj.status).json(errorObj.message);
+});
 
 
-app.listen(3000); //listens on port 3000 -> http://localhost:3000/
+
+
+app.listen(3000, () => {
+  console.log('SERVER UP AND RUNNING!!!')
+}); //listens on port 3000 -> http://localhost:3000/
 

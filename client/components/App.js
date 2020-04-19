@@ -3,6 +3,9 @@ import Runkit from './Runkit.jsx';
 import AlgoPrompt from './AlgoPrompt.jsx';
 import NextButton from './NextButton.jsx';
 import '@babel/polyfill'
+import Header from './Header';
+import Grid from './Grid';
+import Footer from './Footer';
 
 const App = () => {
 
@@ -35,19 +38,21 @@ const App = () => {
     } catch (error) {
       console.error('getAlgoPrompt/App.js error: ', error.message)
     }
+
+    useEffect(() => {
+      getAlgoPrompt()
+    }, [])
+
+    return (
+      <>
+        <Header />
+        <Grid />
+        <Footer />
+        <AlgoPrompt algo={algo} />
+        <Runkit />
+        <NextButton getAlgoPrompt={getAlgoPrompt} />
+      </>
+    );
   }
 
-  useEffect(() => {
-    getAlgoPrompt()
-  }, [])
-
-  return (
-    <>
-      <AlgoPrompt algo={algo} />
-      <Runkit />
-      <NextButton getAlgoPrompt={getAlgoPrompt} />
-    </>
-  );
-}
-
-export default App;
+  export default App;
