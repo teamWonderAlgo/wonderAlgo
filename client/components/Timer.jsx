@@ -1,5 +1,5 @@
 // import React from 'react'
-import React, { useState, useEffect }  from 'react'
+import React, { useState, useEffect } from 'react'
 
 
 /*
@@ -9,10 +9,10 @@ import React, { useState, useEffect }  from 'react'
 
 const Timer = (props) => {
   const [seconds, setSeconds] = useState(0);
-  const [isRunning, setIsRunning] = useState(false);
-  
+  const [isRunning, setIsRunning] = useState(true);
+
   useEffect(() => {
-    if(isRunning) {
+    if (isRunning) {
       const id = setInterval(() => {
         setSeconds(seconds => seconds + 1)
       }, 1000);
@@ -22,15 +22,15 @@ const Timer = (props) => {
 
   return (
     <div>
-      <h1>{seconds}</h1>
-      <button onClick={() => {
+      <h1 className='timer'>{seconds}</h1>
+      {/* <button onClick={() => {
         setIsRunning(true); setSeconds(0);
-        }
-      }>Start</button>
-      <button onClick={() => {
+      }
+      }>Start</button> */}
+      {/* <button onClick={() => {
         setIsRunning(false); setSeconds(0);
-        }
-      }>Reset timer</button>
+      }
+      }>Reset timer</button> */}
     </div>
   )
 }

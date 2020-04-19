@@ -4,18 +4,21 @@ import '@babel/polyfill'
 const NextButton = (props) => {
 
   const handleClick = async (e) => {
-    //need to save data to body
+
+    const algoid = props.algoArr[props.algoArr.length - 1]
+    const timerSec = document.querySelector('.timer').textContent
+
     props.getAlgoPrompt()
-    const fakeBody = {
-      timeInSeconds: 10000000,
-      algo_id: 1,
+    const semiFakeBody = {
+      timeInSeconds: timerSec,
+      algo_id: algoid,
       user_id: 1,
     }
     try {
       const response = await fetch(`http://localhost:3000/storeResult`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(fakeBody),
+        body: JSON.stringify(semiFakeBody),
       })
       console.log(response)
     } catch (err) {
