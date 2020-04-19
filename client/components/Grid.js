@@ -15,7 +15,7 @@ export default props => {
         <LeftPane algo={props.algo} styles={styles} />
       </Grid>
       <Grid item sm>
-        <RightPane styles={styles} />
+        <RightPane getAlgoPrompt={props.getAlgoPrompt} styles={styles} />
       </Grid>
     </Grid>
   );

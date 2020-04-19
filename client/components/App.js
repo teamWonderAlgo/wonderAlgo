@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Runkit from './Runkit.jsx';
-import AlgoPrompt from './AlgoPrompt.jsx';
-import NextButton from './NextButton.jsx';
 import '@babel/polyfill'
 import Header from './Header';
 import Grid from './Grid';
@@ -29,8 +26,7 @@ const App = () => {
 
       const res = await fetch(`http://localhost:3000/algo/${id}`)
       const jsonData = await res.json()
-      setAlgo(jsonData.content);//check jsonData to see if we get the correct data
-      console.log(jsonData)
+      setAlgo(jsonData.content);
 
       let arr = [...algoArr]
       arr.push(id)
@@ -47,11 +43,8 @@ const App = () => {
   return (
     <>
       <Header />
-      {/* algo={algo} */}
-      <Grid algo={algo} />
+      <Grid getAlgoPrompt={getAlgoPrompt} algo={algo} />
       <Footer />
-      {/* <Runkit /> */}
-      {/* /      <NextButton getAlgoPrompt={getAlgoPrompt} /> */}
     </>
   );
 }
