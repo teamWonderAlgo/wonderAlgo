@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Runkit from './Runkit.jsx';
+import Timer from './Timer.jsx';
 import AlgoPrompt from './AlgoPrompt.jsx';
 import NextButton from './NextButton.jsx';
 import '@babel/polyfill'
@@ -48,6 +49,7 @@ const App = () => {
     <>
       <Header />
       {/* algo={algo} */}
+      <Timer/>
       <Grid algo={algo} />
       <Footer />
       {/* <Runkit /> */}
