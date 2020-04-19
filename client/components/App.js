@@ -49,6 +49,7 @@ const App = () => {
     <>
       <Header />
       {/* algo={algo} */}
+      <Timer/>
       <Grid algo={algo} />
       <Footer />
       {/* <Runkit /> */}
