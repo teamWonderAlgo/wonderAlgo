@@ -27,10 +27,10 @@ const App = () => {
         return id
       }
 
-      const res = await fetch(`http://localhost:3000/algo${id}`)
+      const res = await fetch(`http://localhost:3000/algo/${id}`)
       const jsonData = await res.json()
-      // console.log(jsonData)
-      setAlgo(jsonData);//check jsonData to see if we get the correct data
+      setAlgo(jsonData.content);//check jsonData to see if we get the correct data
+      console.log(jsonData)
 
       let arr = [...algoArr]
       arr.push(id)
@@ -39,20 +39,20 @@ const App = () => {
       console.error('getAlgoPrompt/App.js error: ', error.message)
     }
 
-    useEffect(() => {
-      getAlgoPrompt()
-    }, [])
 
-    return (
-      <>
-        <Header />
-        <Grid />
-        <Footer />
-        <AlgoPrompt algo={algo} />
-        <Runkit />
-        <NextButton getAlgoPrompt={getAlgoPrompt} />
-      </>
-    );
   }
-
-  export default App;
+  useEffect(() => {
+    getAlgoPrompt()
+  }, [])
+  return (
+    <>
+      <Header />
+      {/* algo={algo} */}
+      <Grid algo={algo} />
+      <Footer />
+      {/* <Runkit /> */}
+      {/* /      <NextButton getAlgoPrompt={getAlgoPrompt} /> */}
+    </>
+  );
+}
+export default App;
