@@ -1,10 +1,16 @@
 // import React from 'react'
 import React, { useState, useEffect }  from 'react'
 
+
+/*
+ - Uses Hooks to determine two things: 1) Seconds 2) On/Off
+ - useEffect hook checks to see if state is true and if so starts the interval timer. It gets reset once setIsRunning(false) is used
+*/
+
 const Timer = (props) => {
   const [seconds, setSeconds] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
- 
+  
   useEffect(() => {
     if(isRunning) {
       const id = setInterval(() => {
