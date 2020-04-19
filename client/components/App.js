@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Timer from './Timer.jsx';
 import '@babel/polyfill'
 import Header from './Header';
 import Grid from './Grid';
@@ -44,6 +45,7 @@ const App = () => {
     <>
       <Header />
       <Grid getAlgoPrompt={getAlgoPrompt} algo={algo} />
+      <Timer />
       <Footer />
     </>
   );
