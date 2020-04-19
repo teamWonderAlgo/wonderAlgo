@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const router = require('./route/algoroutes')
 const path = require('path');
+const cors = require('cors')
 
 
 // statically serve everything in the build folder on the route '/build'
@@ -11,6 +12,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'));
 });
 //body parser
+app.use(cors())
+
 app.use(express.json());
 
 
