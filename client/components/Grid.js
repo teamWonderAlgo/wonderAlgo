@@ -9,10 +9,10 @@ const styles = {
 }
 
 export default props => {
-  return(
+  return (
     <Grid container>
       <Grid item sm>
-        <LeftPane styles={styles} />
+        <LeftPane algo={props.algo} styles={styles} />
       </Grid>
       <Grid item sm>
         <RightPane styles={styles} />
