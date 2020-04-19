@@ -20,3 +20,6 @@ INSERT INTO times (time, algo_id, user_id) VALUES ($1, $2, $3);
 
 -- add user to database
 INSERT INTO users (name, password) VALUES($1, $2);
+
+-- validate user
+SELECT * FROM users WHERE name = $1;
