@@ -19,13 +19,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^4.9.11",
     "browserify": "^10.2.4",
+    "contentful": "^7.14.3",
     "express": "^4.12.3",
     "gulp": "^3.9.0",
     "node-sass": "^4.13.1",
     "prop-types": "^15.6.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.3.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "typeface-roboto": "0.0.75",
     "webpack": "^4.29.3"
   },
   "devDependencies": {
