@@ -4,6 +4,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import Timer from './Timer.jsx'
+import '../scss/appbar.scss'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,11 +26,14 @@ const Header = () => {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className='appbar'>
+          {/* <div className='appbar' > */}
           <Typography>
             Algo Game
-          </Typography>
-        {/*<Button color="inherit">Login</Button>*/}
+            </Typography>
+          <Timer />
+          {/* </div> */}
+          {/*<Button color="inherit">Login</Button>*/}
         </Toolbar>
       </AppBar>
     </div>

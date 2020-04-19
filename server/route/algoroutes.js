@@ -7,7 +7,7 @@ const router = express.Router();
 
 // Get a algo for a specific ID number (random num is generated in front end)
 router.get('/algo/:id', async (req, res, next) => {
-  const query = `SELECT algos.content FROM algos WHERE algo_id = $1;`
+  const query = 'SELECT algos.content, algos.default_code FROM algos WHERE algo_id = $1;
   try {
     const algo = await pool.query(query, [req.params.id])
     return res.status(200).json(algo.rows[0])
