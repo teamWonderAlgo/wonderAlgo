@@ -38,7 +38,6 @@ const App = () => {
       const jsonData = await res.json()
       setAlgo(jsonData.content);
       setCode(jsonData.default_code)
-      // console.log(jsonData)
 
       let arr = [...algoArr]
       arr.push(id)
@@ -69,6 +68,7 @@ const App = () => {
   // );
 
   return (
+
     <Router>
       <Fragment>
         <Route exact path='/' component={Landing} />
@@ -89,5 +89,6 @@ const App = () => {
     //   <Footer />
     // </>
   // );
+
 }
 export default App;
