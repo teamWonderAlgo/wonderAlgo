@@ -18,12 +18,12 @@ class Runkit extends React.Component {
   }
   alertEvaluated() {
     // (this.source and event are undefined, but we can update state in the callback below) 
-    console.log('hi');
+    // console.log('hi');
     // this.refs.embed.getURL((code) => this.setState({ code }));
     this.refs.embed.getURL('hello')
   }
   render() {
-    return <Embed source={this.props.code} readOnly={false} onLoad={this.alertEvaluated.bind(this)} ref="embed" onSubmit={this.handleChange} evaluateOnLoad={false} />
+    return <Embed minHeight='275px' source={this.props.code} readOnly={false} onLoad={this.alertEvaluated.bind(this)} ref="embed" onSubmit={this.handleChange} evaluateOnLoad={false} />
   }
 }
 

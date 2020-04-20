@@ -10,7 +10,7 @@ const NextButton = (props) => {
     return setPromptCount(count)
   }
 
-  console.log('promp count for rendering done button', promptCount)
+  // console.log('promp count for rendering done button', promptCount)
 
   const handleClick = async (e) => {
 
