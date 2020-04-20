@@ -2,6 +2,7 @@ const express = require('express');
 const pool = require('../../db')
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+const algoController = require('../controllers/algoController')
 
 const router = express.Router();
 
@@ -55,5 +56,9 @@ router.post('/validateUser', async (req, res, next) => {
     return next({err: 'email/password did not match'})
   }
 })
+
+router.get('/getResults/:user_id', algoController.createResultsList, async (req, res, next) => {
+  res.status(200).json(res.locals.results);
+});
 
 module.exports = router;

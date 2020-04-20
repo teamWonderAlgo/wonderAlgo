@@ -4,7 +4,7 @@ import Grid from './GridProfile.jsx';
 import Footer from './FooterProfile.jsx';
 
 const ProfilePage = (props) => {
-
+  console.log('profile render')
   return(
     <>
     <Header />
