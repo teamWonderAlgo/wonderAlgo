@@ -34,7 +34,7 @@ router.post('/addUser', async (req, res, next) => {
   try {
     const encryptedPassword = await bcrypt.hash(req.body.password, saltRounds)
     await pool.query(query, [req.body.name, encryptedPassword, req.body.email]);
-    return res.status(200).json(`Successfully added ${req.body.username} to the users table`)
+    return res.status(200).json(`Successfully added ${req.body.name} to the users table`)
   } catch (err) {
     return next(err)
   }

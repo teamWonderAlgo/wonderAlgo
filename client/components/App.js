@@ -1,11 +1,5 @@
-<<<<<<< HEAD
 import React, { useState, useEffect, Fragment } from 'react';
-import Runkit from './Runkit.jsx';
-import AlgoPrompt from './AlgoPrompt.jsx';
 import NextButton from './NextButton.jsx';
-=======
-import React, { useState, useEffect } from 'react';
->>>>>>> 8ebf9e3bc1af010bd7d6c506b64bfd5d3f89b2d5
 import '@babel/polyfill'
 import Header from './Header';
 import Grid from './Grid';

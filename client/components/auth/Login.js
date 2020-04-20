@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import axios from 'axios';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -12,9 +12,30 @@ const Login = () => {
 
   const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
     console.log(formData);
+    const newUser = {
+      email,
+      password
+    }
+
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+
+      const body = JSON.stringify(newUser);
+
+      const res = await axios.post('http://localhost:3000/validateUser', body, config);
+      console.log(res);
+
+    } catch (err) {
+      console.error(err.response.data)
+
+    } 
   }
   return (
     <Fragment>
