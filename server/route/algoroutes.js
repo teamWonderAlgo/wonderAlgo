@@ -28,31 +28,31 @@ router.post('/storeResult', async (req, res, next) => {
   }
 });
 
-// Receive a body that contains USERNAME and PASSWORD for storing in 'users' table
+// Receive a body that contains NAME, EMAIL and PASSWORD for storing in 'users' table
 router.post('/addUser', async (req, res, next) => {
-  const query = `INSERT INTO users (name, password) VALUES($1, $2);`
+  const query = `INSERT INTO users (name, password, email) VALUES($1, $2, $3);`
   try {
     const encryptedPassword = await bcrypt.hash(req.body.password, saltRounds)
-    await pool.query(query, [req.body.username, encryptedPassword]);
+    await pool.query(query, [req.body.name, encryptedPassword, req.body.email]);
     return res.status(200).json(`Successfully added ${req.body.username} to the users table`)
   } catch (err) {
     return next(err)
   }
 });
 
-// Receive a body that contains USERNAME and PASSWORD for comparing in 'users' table
+// Receive a body that contains EMAIL and PASSWORD for comparing in 'users' table
 router.post('/validateUser', async (req, res, next) => {
-  const { username, password } = req.body;
-  const query = `SELECT * FROM users WHERE name = $1;`
+  const { email, password } = req.body;
+  const query = `SELECT * FROM users WHERE email = $1;`
   try {
-    const user = await pool.query(query, [username]);
+    const user = await pool.query(query, [email]);
     if (await bcrypt.compare(password, user.rows[0].password)) {
       return res.status(200).json(`Successful login`)
     } else {
       throw new Exception();
     }
   } catch (err) {
-    return next({ err: 'password/username did not match' })
+    return next({err: 'email/password did not match'})
   }
 })
 
