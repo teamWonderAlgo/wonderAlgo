@@ -1,6 +1,5 @@
 // import React from 'react'
-import React, { useState, useEffect } from 'react'
-
+import React, { useState, useEffect } from 'react';
 
 /*
  - Uses Hooks to determine two things: 1) Seconds 2) On/Off
@@ -10,16 +9,24 @@ import React, { useState, useEffect } from 'react'
 const Timer = (props) => {
   const [seconds, setSeconds] = useState(0);
   const [isRunning, setIsRunning] = useState(true);
+  // const firstAlgo = props.algo;
+  if (props.algo) {
+    console.log('hit conditional');
+    // setIsRunning(false);
+    // setSeconds(0);
+  }
 
   useEffect(() => {
     if (isRunning) {
       const id = setInterval(() => {
-        setSeconds(seconds => seconds + 1)
+        setSeconds((seconds) => seconds + 1);
       }, 1000);
-      return () => clearInterval(id)
-    } return undefined;
+      return () => clearInterval(id);
+    }
+    return undefined;
   }, [isRunning]);
 
+  console.log('timer');
   return (
     <div>
       <h1 className='timer'>{seconds}</h1>
@@ -27,27 +34,17 @@ const Timer = (props) => {
         setIsRunning(true); setSeconds(0);
       }
       }>Start</button> */}
-      {/* <button onClick={() => {
-        setIsRunning(false); setSeconds(0);
-      }
-      }>Reset timer</button> */}
+      {/* <button
+        onClick={() => {
+          setIsRunning(false);
+          setIsRunning(true);
+          setSeconds(0);
+        }}
+      >
+        Reset timer
+      </button> */}
     </div>
-  )
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  );
+};
 
 export default Timer;

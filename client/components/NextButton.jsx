@@ -30,12 +30,12 @@ const NextButton = (props) => {
 
     const algoid = props.algoArr[props.algoArr.length - 1]
     const timerSec = document.querySelector('.timer').textContent
-
+    const id = props.userId
     props.getAlgoPrompt()
     const semiFakeBody = {
       timeInSeconds: timerSec,
       algo_id: algoid,
-      user_id: 1,
+      user_id: id,
     }
 
     let number = promptCount + 1

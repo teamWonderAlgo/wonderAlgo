@@ -55,7 +55,7 @@ const Login = (props) => {
           />
         </div>
         <input type="submit" className="btn btn-primary" value="Login" />
-      <Link to='/app' className="btn btn-primary">Sign Up</Link>
+      <Link to='/register' className="btn btn-primary">Sign Up</Link>
       </form>
       <p className="my-1">
         Don't have an account? <Link to="/register">Sign Up</Link>
