@@ -3,6 +3,8 @@ import '@babel/polyfill'
 import Header from './Header';
 import Grid from './Grid';
 import Footer from './Footer';
+import ProfilePage  from './Profile.jsx';
+
 
 const App = () => {
 
@@ -48,10 +50,12 @@ const App = () => {
   }, [])
   return (
     <>
-      <Header />
-      <Grid getAlgoPrompt={getAlgoPrompt} algo={algo} algoArr={algoArr} code={code} />
+
+      {/* <Header /> */}
+      {/* <Grid getAlgoPrompt={getAlgoPrompt} algo={algo} algoArr={algoArr} code={code} /> */}
       {/* <Timer /> */}
-      <Footer />
+      {/* <Footer /> */}
+      <ProfilePage />
     </>
   );
 }
