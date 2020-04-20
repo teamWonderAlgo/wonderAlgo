@@ -33,9 +33,7 @@
     "prop-types": "^15.6.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-
     "react-router-dom": "^5.1.2",
-
     "typeface-roboto": "0.0.75",
     "webpack": "^4.29.3"
   },

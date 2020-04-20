@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const Register = () => {
+const Register = (props) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,12 +28,10 @@ const Register = () => {
           'Content-Type': 'application/json'
         }
       }
-
       const body = JSON.stringify(newUser);
-
       const res = await axios.post('http://localhost:3000/addUser', body, config);
       console.log(res.data);
-
+      props.updateState();
     } catch(err) {
       console.error(err.response.data)
 

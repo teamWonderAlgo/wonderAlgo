@@ -4,6 +4,7 @@ import '@babel/polyfill'
 import Header from './Header';
 import Grid from './Grid';
 import Footer from './Footer';
+import AlgoGame from './AlgoGame.jsx';
 
 
 
@@ -15,86 +16,42 @@ import Login from './auth/Login';
 
 
 
-const App = () => {
-
-
-  const [algoArr, setAlgoArr] = useState([])
-  const [algo, setAlgo] = useState('')
-  const [code, setCode] = useState('')
-
-  const setAlgoArray = (algoArr) => {
-    return setAlgoArr(algoArr)
-  }
-
-  const getAlgoPrompt = async () => {
-    try {
-      let id;
-      const randomAlgo = () => {
-        id = Math.floor(Math.random() * Math.floor(5)) + 1
-        if (algoArr.includes(id)) {
-          return randomAlgo()
-        }
-        return id;
-      }
-
-      randomAlgo();
-      const res = await fetch(`http://localhost:3000/algo/${id}`)
-      const jsonData = await res.json()
-      setAlgo(jsonData.content);
-      setCode(jsonData.default_code)
-
-      let arr = [...algoArr]
-      arr.push(id)
-      setAlgoArray(arr);
-      console.log(algoArr)
-    } catch (error) {
-      console.error('getAlgoPrompt/App.js error: ', error.message)
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      user_id: 0,
+      isLoggedIn: false,
     }
-
-
+    this.updateState = this.updateState.bind(this);
   }
-  useEffect(() => {
-    getAlgoPrompt()
-  }, [])
 
+  updateState(id) {
+    this.setState({
+      user_id: id,
+      isLoggedIn: true,
+    })
+  }
 
-  // return (
-  //   <>
-  //     <Header />
-  //     {/* algo={algo} */}
-  //     <Landing />
-  //     <Grid algo={algo} />
-  //     <Footer />
-  //     {/* <Runkit /> */}
-  //     {/* /      <NextButton getAlgoPrompt={getAlgoPrompt} /> */}
-  //   </>
-    
-  // );
-
-  return (
-
-
-    <Router>
-      <Fragment>
-        <Route exact path='/' component={Landing} />
-        <section className="container">
-          <Switch>
-            <Route exact path='/register' component={Register} />
-            <Route exact path='/login' component={Login} />
-          </Switch>
-        </section>
-      </Fragment>
-    </Router>
-  )
-
-    // <>
-    //   <Header />
-    //   <Grid getAlgoPrompt={getAlgoPrompt} algo={algo} algoArr={algoArr} code={code} />
-    //   {/* <Timer /> */}
-    //   <Footer />
-    // </>
-  // );
-
-
+  render() {
+    if (this.state.isLoggedIn === true) {
+      return (
+        <AlgoGame userId={this.state.user_id}/>
+      )
+    }
+    return (
+      <Router>
+        <Fragment>
+          <Route exact path='/' component={Landing} />
+          <section className="container">
+            <Switch>
+              <Route exact path='/register' render={(props) => <Register {...props} updateState={this.updateState}/>} />
+              <Route exact path='/login' render={(props) => <Login {...props} updateState={this.updateState}/>}/>
+            </Switch>
+          </section>
+        </Fragment>
+      </Router>
+    )
+  }
 }
 export default App;
