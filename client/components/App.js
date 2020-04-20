@@ -4,11 +4,15 @@ import '@babel/polyfill'
 import Header from './Header';
 import Grid from './Grid';
 import Footer from './Footer';
+
+
+
 import './App.css';
 import Landing from './Landing';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Register from './auth/Register';
 import Login from './auth/Login';
+
 
 
 const App = () => {
@@ -69,6 +73,7 @@ const App = () => {
 
   return (
 
+
     <Router>
       <Fragment>
         <Route exact path='/' component={Landing} />
@@ -89,6 +94,7 @@ const App = () => {
     //   <Footer />
     // </>
   // );
+
 
 }
 export default App;

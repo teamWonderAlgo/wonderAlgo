@@ -23,3 +23,6 @@ INSERT INTO users (name, password) VALUES($1, $2);
 
 -- validate user
 SELECT * FROM users WHERE name = $1;
+
+-- get results for current user
+SELECT * FROM times WHERE user_id = $1;
