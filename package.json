@@ -21,6 +21,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.8.7",
     "@material-ui/core": "^4.9.11",
+    "axios": "^0.19.2",
     "bcrypt": "^4.0.1",
     "browserify": "^10.2.4",
     "contentful": "^7.14.3",
@@ -32,6 +33,9 @@
     "prop-types": "^15.6.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+
+    "react-router-dom": "^5.1.2",
+
     "typeface-roboto": "0.0.75",
     "webpack": "^4.29.3"
   },
@@ -43,6 +47,7 @@
     "concurrently": "^4.1.0",
     "cross-env": "^5.2.0",
     "css-loader": "^3.5.2",
+    "file-loader": "^6.0.0",
     "isomorphic-fetch": "^2.2.1",
     "nodemon": "^1.18.9",
     "react-runkit": "^0.9.0",

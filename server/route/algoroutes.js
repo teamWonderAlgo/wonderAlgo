@@ -8,7 +8,7 @@ const router = express.Router();
 
 // Get a algo for a specific ID number (random num is generated in front end)
 router.get('/algo/:id', async (req, res, next) => {
-  const query = `SELECT algos.content, algos.default_code FROM algos WHERE algo_id = $1;`
+  const query = 'SELECT algos.content, algos.default_code, algos.algo_name FROM algos WHERE algo_id = $1';
   try {
     const algo = await pool.query(query, [req.params.id])
     return res.status(200).json(algo.rows[0])
@@ -35,7 +35,7 @@ router.post('/addUser', async (req, res, next) => {
   try {
     const encryptedPassword = await bcrypt.hash(req.body.password, saltRounds)
     await pool.query(query, [req.body.name, encryptedPassword, req.body.email]);
-    return res.status(200).json(`Successfully added ${req.body.username} to the users table`)
+    return res.status(200).json(`Successfully added ${req.body.name} to the users table`)
   } catch (err) {
     return next(err)
   }

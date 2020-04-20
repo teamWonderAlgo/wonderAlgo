@@ -1,9 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
+import NextButton from './NextButton.jsx';
 import '@babel/polyfill'
 import Header from './Header';
 import Grid from './Grid';
 import Footer from './Footer';
-import ProfilePage  from './Profile.jsx';
+
+
+
+import './App.css';
+import Landing from './Landing';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Register from './auth/Register';
+import Login from './auth/Login';
+
 
 
 const App = () => {
@@ -33,7 +42,6 @@ const App = () => {
       const jsonData = await res.json()
       setAlgo(jsonData.content);
       setCode(jsonData.default_code)
-      // console.log(jsonData)
 
       let arr = [...algoArr]
       arr.push(id)
@@ -48,15 +56,45 @@ const App = () => {
   useEffect(() => {
     getAlgoPrompt()
   }, [])
-  return (
-    <>
 
-      {/* <Header /> */}
-      {/* <Grid getAlgoPrompt={getAlgoPrompt} algo={algo} algoArr={algoArr} code={code} /> */}
-      {/* <Timer /> */}
-      {/* <Footer /> */}
-      <ProfilePage />
-    </>
-  );
+
+  // return (
+  //   <>
+  //     <Header />
+  //     {/* algo={algo} */}
+  //     <Landing />
+  //     <Grid algo={algo} />
+  //     <Footer />
+  //     {/* <Runkit /> */}
+  //     {/* /      <NextButton getAlgoPrompt={getAlgoPrompt} /> */}
+  //   </>
+    
+  // );
+
+  return (
+
+
+    <Router>
+      <Fragment>
+        <Route exact path='/' component={Landing} />
+        <section className="container">
+          <Switch>
+            <Route exact path='/register' component={Register} />
+            <Route exact path='/login' component={Login} />
+          </Switch>
+        </section>
+      </Fragment>
+    </Router>
+  )
+
+    // <>
+    //   <Header />
+    //   <Grid getAlgoPrompt={getAlgoPrompt} algo={algo} algoArr={algoArr} code={code} />
+    //   {/* <Timer /> */}
+    //   <Footer />
+    // </>
+  // );
+
+
 }
 export default App;
