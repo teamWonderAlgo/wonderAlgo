@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 
-const algoGame = (props) => {
+const AlgoGame = (props) => {
 
   const [algoArr, setAlgoArr] = useState([])
   const [algo, setAlgo] = useState('')
@@ -68,4 +68,4 @@ const algoGame = (props) => {
   
  
 }
-export default algoGame;
+export default AlgoGame;

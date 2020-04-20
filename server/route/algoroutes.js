@@ -48,7 +48,7 @@ router.post('/validateUser', async (req, res, next) => {
   try {
     const user = await pool.query(query, [email]);
     if (await bcrypt.compare(password, user.rows[0].password)) {
-      return res.status(200).json(`Successful login`)
+      return res.status(200).json(user.rows[0])
     } else {
       throw new Exception();
     }

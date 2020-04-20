@@ -4,7 +4,7 @@ import '@babel/polyfill'
 import Header from './Header';
 import Grid from './Grid';
 import Footer from './Footer';
-import algoGame from './algoGame.jsx';
+import AlgoGame from './AlgoGame.jsx';
 
 
 
@@ -16,27 +16,42 @@ import Login from './auth/Login';
 
 
 
-const App = () => {
-
-  const [login, setLogin] = useState(false)
-
-  const setupLogin = (bool) => {
-    return setLogin(bool)
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      user_id: 0,
+      isLoggedIn: false,
+    }
+    this.updateState = this.updateState.bind(this);
   }
 
-  return (
-    <Router>
-      <Fragment>
-        <Route exact path='/' component={Landing} />
-        <section className="container">
-          <Switch>
-            <Route exact path='/register' component={Register} />
-            <Route exact path='/login' component={Login} render={(props) => <Login {...props} login={false}/>}/>
-            <Route exact path='/app' component={algoGame} />
-          </Switch>
-        </section>
-      </Fragment>
-    </Router>
-  )
+  updateState(id) {
+    this.setState({
+      user_id: id,
+      isLoggedIn: true,
+    })
+  }
+
+  render() {
+    if (this.state.isLoggedIn === true) {
+      return (
+        <AlgoGame userId={this.state.user_id}/>
+      )
+    }
+    return (
+      <Router>
+        <Fragment>
+          <Route exact path='/' component={Landing} />
+          <section className="container">
+            <Switch>
+              <Route exact path='/register' render={(props) => <Register {...props} updateState={this.updateState}/>} />
+              <Route exact path='/login' render={(props) => <Login {...props} updateState={this.updateState}/>}/>
+            </Switch>
+          </section>
+        </Fragment>
+      </Router>
+    )
+  }
 }
 export default App;
