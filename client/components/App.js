@@ -31,7 +31,6 @@ const App = () => {
       const jsonData = await res.json()
       setAlgo(jsonData.content);
       setCode(jsonData.default_code)
-      // console.log(jsonData)
 
       let arr = [...algoArr]
       arr.push(id)
@@ -50,7 +49,6 @@ const App = () => {
     <>
       <Header />
       <Grid getAlgoPrompt={getAlgoPrompt} algo={algo} algoArr={algoArr} code={code} />
-      {/* <Timer /> */}
       <Footer />
     </>
   );
