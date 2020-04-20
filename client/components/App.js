@@ -4,6 +4,7 @@ import '@babel/polyfill'
 import Header from './Header';
 import Grid from './Grid';
 import Footer from './Footer';
+import algoGame from './algoGame.jsx';
 
 
 
@@ -17,84 +18,25 @@ import Login from './auth/Login';
 
 const App = () => {
 
+  const [login, setLogin] = useState(false)
 
-  const [algoArr, setAlgoArr] = useState([])
-  const [algo, setAlgo] = useState('')
-  const [code, setCode] = useState('')
-
-  const setAlgoArray = (algoArr) => {
-    return setAlgoArr(algoArr)
+  const setupLogin = (bool) => {
+    return setLogin(bool)
   }
-
-  const getAlgoPrompt = async () => {
-    try {
-      let id;
-      const randomAlgo = () => {
-        id = Math.floor(Math.random() * Math.floor(5)) + 1
-        if (algoArr.includes(id)) {
-          return randomAlgo()
-        }
-        return id;
-      }
-
-      randomAlgo();
-      const res = await fetch(`http://localhost:3000/algo/${id}`)
-      const jsonData = await res.json()
-      setAlgo(jsonData.content);
-      setCode(jsonData.default_code)
-
-      let arr = [...algoArr]
-      arr.push(id)
-      setAlgoArray(arr);
-      console.log(algoArr)
-    } catch (error) {
-      console.error('getAlgoPrompt/App.js error: ', error.message)
-    }
-
-
-  }
-  useEffect(() => {
-    getAlgoPrompt()
-  }, [])
-
-
-  // return (
-  //   <>
-  //     <Header />
-  //     {/* algo={algo} */}
-  //     <Landing />
-  //     <Grid algo={algo} />
-  //     <Footer />
-  //     {/* <Runkit /> */}
-  //     {/* /      <NextButton getAlgoPrompt={getAlgoPrompt} /> */}
-  //   </>
-    
-  // );
 
   return (
-
-
     <Router>
       <Fragment>
         <Route exact path='/' component={Landing} />
         <section className="container">
           <Switch>
             <Route exact path='/register' component={Register} />
-            <Route exact path='/login' component={Login} />
+            <Route exact path='/login' component={Login} render={(props) => <Login {...props} login={false}/>}/>
+            <Route exact path='/app' component={algoGame} />
           </Switch>
         </section>
       </Fragment>
     </Router>
   )
-
-    // <>
-    //   <Header />
-    //   <Grid getAlgoPrompt={getAlgoPrompt} algo={algo} algoArr={algoArr} code={code} />
-    //   {/* <Timer /> */}
-    //   <Footer />
-    // </>
-  // );
-
-
 }
 export default App;

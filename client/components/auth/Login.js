@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
-const Login = () => {
+const Login = (props) => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -14,7 +14,6 @@ const Login = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    console.log(formData);
     const newUser = {
       email,
       password
@@ -26,17 +25,16 @@ const Login = () => {
           'Content-Type': 'application/json'
         }
       }
-
       const body = JSON.stringify(newUser);
-
       const res = await axios.post('http://localhost:3000/validateUser', body, config);
       console.log(res);
-
+      // props.setupLogin(true)
     } catch (err) {
-      console.error(err.response.data)
-
+      console.log('errpr')
+      // console.error(err.response.data)
     } 
   }
+
   return (
     <Fragment>
       <h1 className="large text-primary">Sign In</h1>
@@ -55,6 +53,7 @@ const Login = () => {
           />
         </div>
         <input type="submit" className="btn btn-primary" value="Login" />
+      <Link to='/app' className="btn btn-primary">Sign Up</Link>
       </form>
       <p className="my-1">
         Don't have an account? <Link to="/register">Sign Up</Link>

@@ -9,7 +9,7 @@ export default (props) => {
 
   return (
     <Paper style={props.styles.Paper}>
-      <Runkit minHeight='500px' code={props.code} />
+      <Runkit code={props.code} />
       <NextButton algoArr={props.algoArr} getAlgoPrompt={props.getAlgoPrompt} />
     </Paper>
   )
