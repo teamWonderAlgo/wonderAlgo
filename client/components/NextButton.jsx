@@ -13,18 +13,6 @@ const NextButton = (props) => {
   // console.log('promp count for rendering done button', promptCount)
 
   const handleClick = async (e) => {
-    // let id = props.algoArr[props.algoArr.length - 1]
-    // const res = await fetch(`http://localhost:3000/algo/${id}`)
-    // const resJson = await res.json()
-    // const algoAnswer = resJson.algo_answer
-
-    // if (answer !== algoAnswer) {
-    //   return (
-    //     <>
-    //       <button onClick={handleClick}>Next</button>
-    //     </>
-    //   )
-    // }
 
     const algoid = props.algoArr[props.algoArr.length - 1];
     const timerSec = document.querySelector('.timer').textContent;
@@ -54,32 +42,19 @@ const NextButton = (props) => {
   if (promptCount === 6) {
     return (
       <>
-
-
-
-        <Router>
-          <div>
-            <Link to="/">
-              {/* <button >Done</button> */}
-              <input type="submit" className="btn btn-primary" value="Done" onClick={props.setProfile(true)} />
-            </Link>
-            {/* <hr /> */}
-
-            <Switch>
-              <Route exact path="/">
-                {/* <Profile /> */}
-              </Route>
-            </Switch>
-          </div>
-        </Router>
+        <input
+          type='submit'
+          className='btn btn-primary'
+          value='Done'
+          onClick={props.setProfile(true)}
+        />
       </>
     );
   } else {
     return (
       <>
-
         {/* <button onClick={handleClick}>Next</button> */}
-        <input type="submit" className="btn btn-primary" value="Next" onClick={handleClick}/>
+        <input type='submit' className='btn btn-primary' value='Next' onClick={handleClick} />
       </>
     );
   }
