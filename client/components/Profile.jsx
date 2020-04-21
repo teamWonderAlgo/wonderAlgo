@@ -8,7 +8,7 @@ const ProfilePage = (props) => {
   return(
     <>
     <Header />
-    <Grid />
+    <Grid userId={props.userId}/>
     <Footer />
     </>
   )
