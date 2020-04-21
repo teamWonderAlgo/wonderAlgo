@@ -10,12 +10,10 @@
     "gulp-prod": "node_modules/.bin/gulp prod",
     "gulp-dev": "node_modules/.bin/gulp dev"
   },
-  "nodemonConfig": {
     "ignore": [
       "build",
       "client"
-    ]
-  },
+    ],
   "author": "",
   "license": "ISC",
   "dependencies": {

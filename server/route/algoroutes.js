@@ -57,6 +57,7 @@ router.post('/validateUser', async (req, res, next) => {
   }
 })
 
+//Grab some results for a specific user id
 router.get('/getResults/:user_id', algoController.createResultsList, async (req, res, next) => {
   res.status(200).json(res.locals.results);
 });

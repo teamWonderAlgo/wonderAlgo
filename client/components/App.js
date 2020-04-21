@@ -6,8 +6,6 @@ import Grid from './Grid';
 import Footer from './Footer';
 import AlgoGame from './AlgoGame.jsx';
 
-
-
 import './App.css';
 import Landing from './Landing';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -15,7 +13,7 @@ import Register from './auth/Register';
 import Login from './auth/Login';
 
 
-
+//manages the state between login and our game
 class App extends React.Component {
   constructor() {
     super()
@@ -45,6 +43,7 @@ class App extends React.Component {
           <Route exact path='/' component={Landing} />
           <section className="container">
             <Switch>
+            {/* the syntax below looks crazy - it's how you pass down props to other components within a Route tag */}
               <Route exact path='/register' render={(props) => <Register {...props} updateState={this.updateState}/>} />
               <Route exact path='/login' render={(props) => <Login {...props} updateState={this.updateState}/>}/>
             </Switch>
