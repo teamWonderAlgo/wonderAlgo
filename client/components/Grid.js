@@ -5,8 +5,9 @@ import LeftPane from './LeftPane';
 import RightPane from './RightPane';
 
 const styles = {
-  Paper: { padding: 20, marginTop: 10, marginBottom: 10, height: 545 },
+  Paper: { padding: 20, marginTop: 10, marginBottom: 10, height: 600 }
 };
+
 
 export default (props) => {
   return (

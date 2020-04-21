@@ -8,15 +8,18 @@ import Timer from './Timer.jsx';
 import '../scss/appbar.scss';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
+  // root: {
+  //   flexGrow: 1,
+  // },
+  // menuButton: {
+  //   marginRight: theme.spacing(2),
+  // },
   title: {
     flexGrow: 1,
   },
+  typography: {
+    fontFamily: 'Raleway'
+  }
 }));
 
 const Header = (props) => {
@@ -26,7 +29,7 @@ const Header = (props) => {
       <AppBar position='static'>
         <Toolbar className='appbar'>
           {/* <div className='appbar' > */}
-          <Typography>Algo Game</Typography>
+          <Typography className={classes.typography} variant="h5">Algo Game</Typography>
           <Timer algo={props.algo} />
           {/* </div> */}
           {/*<Button color="inherit">Login</Button>*/}

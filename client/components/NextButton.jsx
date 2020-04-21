@@ -54,13 +54,32 @@ const NextButton = (props) => {
   if (promptCount === 6) {
     return (
       <>
-        <button onClick={props.setProfile(true)}>Done</button>
+
+
+
+        <Router>
+          <div>
+            <Link to="/">
+              {/* <button >Done</button> */}
+              <input type="submit" className="btn btn-primary" value="Done" onClick={props.setProfile(true)} />
+            </Link>
+            {/* <hr /> */}
+
+            <Switch>
+              <Route exact path="/">
+                {/* <Profile /> */}
+              </Route>
+            </Switch>
+          </div>
+        </Router>
       </>
     );
   } else {
     return (
       <>
-        <button onClick={handleClick}>Submit</button>
+
+        {/* <button onClick={handleClick}>Next</button> */}
+        <input type="submit" className="btn btn-primary" value="Next" onClick={handleClick}/>
       </>
     );
   }
