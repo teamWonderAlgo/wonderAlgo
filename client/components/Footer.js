@@ -5,14 +5,24 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
+const useStyles = makeStyles((theme) => ({
+
+  title: {
+    flexGrow: 1,
+  },
+  typography: {
+    fontFamily: 'Raleway'
+  }
+}));
+
 const Footer = () => {
-  // const classes = useStyles();
+  const classes = useStyles();
 
   return (
     <div>
       <AppBar position="static">
         <Toolbar>
-          <Button color="inherit">Next</Button>
+          {/* <Button color="inherit">Next</Button> */}
         </Toolbar>
       </AppBar>
     </div>

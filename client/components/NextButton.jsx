@@ -59,9 +59,10 @@ const NextButton = (props) => {
         <Router>
           <div>
             <Link to="/">
-              <button >Done</button>
+              {/* <button >Done</button> */}
+              <input type="submit" className="btn btn-primary" value="Done" onClick={handleClick} />
             </Link>
-            <hr />
+            {/* <hr /> */}
 
             <Switch>
               <Route exact path="/">
@@ -76,7 +77,8 @@ const NextButton = (props) => {
   else {
     return (
       <>
-        <button onClick={handleClick}>Next</button>
+        {/* <button onClick={handleClick}>Next</button> */}
+        <input type="submit" className="btn btn-primary" value="Next" onClick={handleClick}/>
       </>
     )
   }
