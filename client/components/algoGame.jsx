@@ -4,6 +4,7 @@ import '@babel/polyfill';
 import Header from './Header';
 import Grid from './Grid';
 import Footer from './Footer';
+import ProfilePage from './Profile.jsx';
 
 import './App.css';
 
@@ -13,6 +14,11 @@ const AlgoGame = (props) => {
   const [algoArr, setAlgoArr] = useState([]);
   const [algo, setAlgo] = useState('');
   const [code, setCode] = useState('');
+  const [profile, setProfile] = useState(false);
+
+  const setupProfile = (bool) => {
+    return setProfile(bool);
+  };
 
   const setAlgoArray = (algoArr) => {
     return setAlgoArr(algoArr);
@@ -46,10 +52,18 @@ const AlgoGame = (props) => {
     getAlgoPrompt();
   }, []);
 
+  if (profile === true) {
+    return (
+      <>
+        <ProfilePage userId={props.userId}/>
+      </>
+    );
+  }
   return (
     <>
       <Header algo={algo} />
       <Grid
+        setProfile={setupProfile}
         userId={props.userId}
         getAlgoPrompt={getAlgoPrompt}
         algo={algo}

@@ -6,16 +6,24 @@ import RightPane from './RightPane';
 
 const styles = {
   Paper: { padding: 20, marginTop: 10, marginBottom: 10, height: 600 }
-}
+};
 
-export default props => {
+
+export default (props) => {
   return (
     <Grid container>
       <Grid item sm>
         <LeftPane algo={props.algo} styles={styles} />
       </Grid>
       <Grid item sm>
-        <RightPane userId={props.userId} code={props.code} algoArr={props.algoArr} getAlgoPrompt={props.getAlgoPrompt} styles={styles} />
+        <RightPane
+          setProfile={props.setProfile}
+          userId={props.userId}
+          code={props.code}
+          algoArr={props.algoArr}
+          getAlgoPrompt={props.getAlgoPrompt}
+          styles={styles}
+        />
       </Grid>
     </Grid>
   );

@@ -9,11 +9,8 @@ import React, { useState, useEffect } from 'react';
 const Timer = (props) => {
   const [seconds, setSeconds] = useState(0);
   const [isRunning, setIsRunning] = useState(true);
-  // const firstAlgo = props.algo;
+
   if (props.algo) {
-    console.log('hit conditional');
-    // setIsRunning(false);
-    // setSeconds(0);
   }
 
   useEffect(() => {
