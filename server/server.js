@@ -11,9 +11,9 @@ app.use('/build', express.static(path.join(__dirname, '../build')));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'));
 });
-//body parser
-app.use(cors())
 
+//CORS and BODY PARSER
+app.use(cors())
 app.use(express.json());
 
 
@@ -22,10 +22,6 @@ app.use(express.json());
 // * WRITE SERVER CODE BELOW THIS
 
 app.use('/', router);
-
-
-
-
 
 
 

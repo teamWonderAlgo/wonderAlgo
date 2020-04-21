@@ -8,12 +8,6 @@ import Timer from './Timer.jsx';
 import '../scss/appbar.scss';
 
 const useStyles = makeStyles((theme) => ({
-  // root: {
-  //   flexGrow: 1,
-  // },
-  // menuButton: {
-  //   marginRight: theme.spacing(2),
-  // },
   title: {
     flexGrow: 1,
   },
@@ -28,11 +22,8 @@ const Header = (props) => {
     <div className={classes.root}>
       <AppBar position='static'>
         <Toolbar className='appbar'>
-          {/* <div className='appbar' > */}
           <Typography className={classes.typography} variant="h5">Algo Game</Typography>
           <Timer algo={props.algo} />
-          {/* </div> */}
-          {/*<Button color="inherit">Login</Button>*/}
         </Toolbar>
       </AppBar>
     </div>

@@ -2,6 +2,8 @@ const pool = require('../../db');
 
 const algoController = {};
 
+
+// middleware for grabbing a results list: Get a sorted array of objects that contain 1) name of algo, 2) time elapsed, 3) the id of the time
 algoController.createResultsList = async (req, res, next) => {
   const query = `
     SELECT times.time, algos.algo_name, times.id

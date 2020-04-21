@@ -11,19 +11,24 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const AlgoGame = (props) => {
+  //hooks used to manage state
+  //algoArr was to ensure the algos did not repeat, in the the method below, getAlgoPrompt, it would check if the algo id was already used, if it was it would recurse to find a new id to use on the next prompt
   const [algoArr, setAlgoArr] = useState([]);
+  //algo state was used to post the correct prompt into the prompt box, matching the id set by get algo prompt
   const [algo, setAlgo] = useState('');
+  //code state was used to post the correct prompt into the code editor matching the id set by get algo prompt
   const [code, setCode] = useState('');
+  //this state was used to present the profile page with the high scores
   const [profile, setProfile] = useState(false);
-
+  //this method was used to passed down as a prop to manage the profile state
   const setupProfile = (bool) => {
     return setProfile(bool);
   };
-
+  //this method was used to pass down as a prop to next button, but also to make sure the algo ids are unique
   const setAlgoArray = (algoArr) => {
     return setAlgoArr(algoArr);
   };
-
+  //algo randomizer
   const getAlgoPrompt = async () => {
     try {
       let id;

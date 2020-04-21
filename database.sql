@@ -1,4 +1,4 @@
--- SAVE QUERIES HERE FOR COPYING
+-- This is just a file to keep all SQL queries. This file is not required to run anything.
 
 
 -- insert new algo
@@ -8,8 +8,6 @@ VALUES ('nameOfAlgo', 'the actual prompt for the algo goes here');
 -- insert new user
 INSERT INTO users (name, password)
 VALUES ('nameOfAlgo', 'password');
-
-
 
 -- get a result that matches user_id/algo_id
 SELECT * FROM times WHERE user_id = 1 AND algo_id = 1;

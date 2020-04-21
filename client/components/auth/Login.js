@@ -9,11 +9,7 @@ const Login = (props) => {
   });
 
   const { email, password } = formData;
-  // const { history } = this.props
-  // console.log('history', history)
-
   const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
-
   const onSubmit = async e => {
     e.preventDefault();
     const newUser = {
@@ -29,11 +25,9 @@ const Login = (props) => {
       }
       const body = JSON.stringify(newUser);
       const res = await axios.post('http://localhost:3000/validateUser', body, config);
-      console.log(res.data);
       props.updateState(res.data.id)
     } catch (err) {
       console.log('error')
-      // console.error(err.response.data)
     } 
   }
 
@@ -50,7 +44,6 @@ const Login = (props) => {
             type="password"
             placeholder="Password"
             name="password"
-            // minLength="6"
             value={password} onChange={e => onChange(e)}
           />
         </div>

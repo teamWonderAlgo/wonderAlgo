@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Header from './HeaderProfile.jsx';
 import Grid from './GridProfile.jsx';
-import Footer from './FooterProfile.jsx';
+import Footer from './Footer.js';
 
 const ProfilePage = (props) => {
-  console.log('profile render')
   return(
     <>
     <Header />
