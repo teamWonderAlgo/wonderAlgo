@@ -49,9 +49,8 @@ export default (props) => {
     <Grid container justify='center'>
       <Grid item sm>
         <Paper style={styles}>
-          <h1>DISPLAY USERS NAME HERE</h1>
+          <h1>HIGHSCORES</h1>
           <List>
-            Below are your 5 best times overall
             {highScores}
           </List>
         </Paper>
